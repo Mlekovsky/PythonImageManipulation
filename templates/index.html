@@ -3,27 +3,18 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="static/css/style.css"/>
-        <script src="static/js/script.js"></script>
-        <script src="static/js/layout.js"></script>
-        <script src="static/js/version01.js"></script>
-        <script src="static/js/SmietanaFunkcje.js"></script>
-        <title>Bitmap Manipulator</title>
-        <!-- ............................ jquery ver. 3.3.1 .................. -->
-        <script src="static/js/jquery-3.3.1.min.js"></script>
-        <!-- ............................ bootstrap ver. 3.3.7 ............... -->
-        <!-- Żeby pliki poprawnie się otwierały, należy otworzyć projekt na jakimś serwerze http (może być lokalny). -->
         <link rel="stylesheet" href="static/css/bootstrap.min.css" crossorigin="anonymous">
-        <script src="static/js/bootstrap.min.js" crossorigin="anonymous"></script> 
-        <!-- ................................................................. -->
+        <title>Bitmap Manipulator</title>
     </head>
-    <body onLoad="updateCanvas();">
+    <body>
         <div class="navbar navbar-default" role="navigation">
             <ul class="nav navbar-nav">
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bitmaps<b class="caret"></b></a>
                     <ul class="dropdown-menu multi-level">
-                        <li><p class="menuItem" onclick="setBitmap( 'static/img/lena256.png' )">Lena256</p></li>
-
+                        <li><p class="menuItem" onclick="setPictures( 'static/img/lena256.png' )">Lena256</p></li>
+                        <li><p class="menuItem" onclick="setPictures( 'static/img/monkey256.png' )">Monkey256</p></li>
+                        <li><p class="menuItem" onclick="setPictures( 'static/img/parrots256.png' )">Parrots256</p></li>
                     </ul>
                 </li>
                 <li>
@@ -35,9 +26,17 @@
                         <li><p class="menuItem" onclick="SliceImagesIntoTiles(true)">Divide into tiles mixed with all used effects</p></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python funtions<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><p class="menuItem" id="TestButton">Get data from ajax!</p></li>
+                        <li><p class="menuItem" id="Negative">Negative</p></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div id="container">
+            <h3>Javascript image manipulations</h3>
             <div class="canvasRow">
                 <canvas id="myCanvas1" class="canvas" width="256" height="256"></canvas>
                 <canvas id="myCanvas2" class="canvas" width="256" height="256"></canvas>
@@ -48,6 +47,20 @@
                 <canvas id="myCanvas5" class="canvas" width="256" height="256"></canvas>
                 <canvas id="myCanvas6" class="canvas" width="256" height="256"></canvas>
             </div>
+        </div> 
+        <div>
+            <h3>Python image manipulations</h3>
+            <div class="canvasRow">
+                <canvas id="baseCanvas" class="canvas" width="256" height="256"></canvas>
+                <canvas id="targetCanvas" class="canvas" width="256" height="256"></canvas>
+            </div>
         </div>
+        <div id="testContainer"></div>
     </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js" crossorigin="anonymous"></script> 
+    <script src="static/js/script.js"></script>
+    <script src="static/js/functions.js"></script>
+    <script src="static/js/AjaxCalls.js"></script>        
 </html>
