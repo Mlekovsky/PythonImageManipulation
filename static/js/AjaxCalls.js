@@ -36,3 +36,91 @@ $("#Grayscale").click(function() {
 $("#Histogram").click(function() {    
     PostImage('/histogram');
 });
+
+$("#ScalingShrink").click(function() {    
+    PostImage('/scaling_shrink');
+});
+
+$("#ScalingExpand").click(function() {    
+    PostImage('/scaling_expand');
+});
+
+$("#ThresholdBinary64").click(function() {    
+    PostImage('/thresholding_binary_64');
+});
+
+$("#ThresholdBinary128").click(function() {    
+    PostImage('/thresholding_binary_128');
+});
+
+$("#ThresholdBinary192").click(function() {    
+    PostImage('/thresholding_binary_192');
+});
+
+$("#ThresholdBinary64_inv").click(function() {    
+    PostImage('/thresholding_binary_64_inv');
+});
+
+$("#ThresholdBinary128_inv").click(function() {    
+    PostImage('/thresholding_binary_128_inv');
+});
+
+$("#ThresholdBinary192_inv").click(function() {    
+    PostImage('/thresholding_binary_192_inv');
+});
+
+$("#FilterBlur").click(function() {    
+    PostImage('/filters_blur');
+});
+
+$("#FilterMean").click(function() {    
+    PostImage('/filters_meanRemoval');
+});
+
+$("#FilterMedian").click(function() {    
+    PostImage('/filters_median');
+});
+
+$("#HSV").click(function() {    
+    PostImage('/rgb_to_hsv');
+});
+
+$("#HLS").click(function() {    
+    PostImage('/rgb_to_hls');
+});
+
+$("#Gray").click(function() {    
+    PostImage('/gray');
+});
+
+$("#Rotate90").click(function() {    
+    PostImage('/rotate90');
+});
+
+$("#Rotate180").click(function() {    
+    PostImage('/rotate180');
+});
+
+$("#Rotate270").click(function() {    
+    PostImage('/rotate270');
+});
+
+$("#IncreaseBright").click(function() {    
+    PostImage('/increase_bright');
+});
+
+$("#DecreaseBright").click(function() {    
+    PostImage('/decrease_bright');
+});
+
+$("#Border").click(function() {    
+    PostImage('/border');
+});
+
+$("#Erode").click(function() {    
+    PostImage('/erosion');
+});
+
+$("#Dilate").click(function() {    
+    PostImage('/dilatation');
+});

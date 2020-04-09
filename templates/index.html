@@ -15,6 +15,9 @@
                         <li><p class="menuItem" onclick="setPictures( 'static/img/lena256.png' )">Lena256</p></li>
                         <li><p class="menuItem" onclick="setPictures( 'static/img/monkey256.png' )">Monkey256</p></li>
                         <li><p class="menuItem" onclick="setPictures( 'static/img/parrots256.png' )">Parrots256</p></li>
+                        <li><p class="menuItem" onclick="setPictures( 'static/img/black_rectangles256.png' )">Rectangles256</p></li>
+                        <li><p class="menuItem" onclick="setPictures( 'static/img/six_squares256.png' )">Squares256</p></li>
+                        <li><p class="menuItem" onclick="setPictures( 'static/img/tire256.png' )">Tire256</p></li>
                     </ul>
                 </li>
                 <li>
@@ -28,11 +31,62 @@
                 </li>
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Python funtions<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><p class="menuItem" id="TestButton">Get data from ajax!</p></li>
+                    <ul class="dropdown-menu multi-level">
                         <li><p class="menuItem" id="Negative">Negative</p></li>
                         <li><p class="menuItem" id="Grayscale">Grayscale</p></li>
                         <li><p class="menuItem" id="Histogram">Histogram normalization</p></li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Scaling</a>
+                            <ul class="dropdown-menu">
+                                <li class="menuItem" id="ScalingShrink">Shrink</li>
+                                <li class="menuItem" id="ScalingExpand">Expand</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Thresholding</a>
+                            <ul class="dropdown-menu">
+                                <li class="menuItem" id="ThresholdBinary64">Binary (64,255)</li>
+                                <li class="menuItem" id="ThresholdBinary128">Binary (128,255)</li>
+                                <li class="menuItem" id="ThresholdBinary192">Binary (192,255)</li>
+                                <li class="menuItem" id="ThresholdBinary64_inv">Binary inv (64,255)</li>
+                                <li class="menuItem" id="ThresholdBinary128_inv">Binary inv (128,255)</li>
+                                <li class="menuItem" id="ThresholdBinary192_inv">Binary inv (192,255)</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filters</a>
+                            <ul class="dropdown-menu">
+                                <li class="menuItem" id="FilterBlur">Blur</li>
+                                <li class="menuItem" id="FilterMean">Mean removal</li>
+                                <li class="menuItem" id="FilterMedian">Median</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Color spaces</a>
+                            <ul class="dropdown-menu">
+                                <li class="menuItem" id="HSV">HSV</li>
+                                <li class="menuItem" id="HLS">HLS</li>
+                                <li class="menuItem" id="Gray">Gray</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rotate</a>
+                            <ul class="dropdown-menu">
+                                <li class="menuItem" id="Rotate90">90 degrees</li>
+                                <li class="menuItem" id="Rotate180">180 degrees</li>
+                                <li class="menuItem" id="Rotate270">270 degrees</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Change brightness</a>
+                            <ul class="dropdown-menu">
+                                <li class="menuItem" id="IncreaseBright">Increase</li>
+                                <li class="menuItem" id="DecreaseBright">Decrease</li>
+                            </ul>
+                        </li>
+                        <li><p class="menuItem" id="Border">Border detection</p></li>
+                        <li><p class="menuItem" id="Erode">Erode</p></li>
+                        <li><p class="menuItem" id="Dilate">Dilate</p></li>
                     </ul>
                 </li>
             </ul>
