@@ -15,8 +15,9 @@ After this step, you should be able to run statemets in your console and get inf
 #### 2. With pip installed, you can type in command line (windows) or terminal (linux)
 
 - ```pip install Flask``` 
+- ```pip install opencv-python```
 
-To download Flask library
+To download Flask library and opencv library (with dependencies)
 
 #### 3. Open folder with downloaded project, and open terminal here. Then paste:
 
