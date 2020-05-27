@@ -111,13 +111,24 @@
                 <canvas id="targetCanvas" class="canvas" width="256" height="256"></canvas>
             </div>
         </div>
-        <div >
+        <div class="container" style="margin-left: 0px;">
             <h3>Python receipt parser</h3>
-            <input type="file" onchange="previewFile()"><br>
-            <img src="" height="200" alt="Image preview...">
-           <!--  <div class="canvasRow">
-                <canvas id="receiptCanvas" class="canvas" height="256"></canvas>
-            </div> -->
+            <div class="row">
+                <div class="col">
+                    <input id="imgfile" type="file" onchange="loadImage()">
+                </div>
+                <div class="col">
+                    <button id="ParseReceiptButton" disabled="true">Parse receipt</button>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col">                                       
+                        <canvas id="receiptCanvas" class="canvas" width="256" height="256"></canvas>                     
+                    </div>
+                    <div class="col">
+                        <textarea id="ReceiptResponse" rows="2" cols="100"></textarea>
+                    </div>
+                </div>      
         </div>
     </body>
 

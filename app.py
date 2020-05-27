@@ -1,9 +1,19 @@
+from __future__ import print_function
 from flask import Flask, render_template, jsonify, request
 import cv2
 import numpy
 import os.path
 import base64
 import json
+
+#External API Imports
+import cloudmersive_validate_api_client
+from cloudmersive_validate_api_client.rest import ApiException
+
+import time
+import cloudmersive_ocr_api_client
+from cloudmersive_ocr_api_client.rest import ApiException
+from pprint import pprint
 
 app = Flask(__name__)
 
@@ -32,6 +42,28 @@ def home():
 @app.route("/test")
 def test():
     return "Test data for ajax"    
+
+@app.route("/receipt", methods = ['POST'])
+def receipt():    
+    api_instance = cloudmersive_ocr_api_client.ImageOcrApi()
+
+    api_instance.api_client.configuration.api_key = {}
+    api_instance.api_client.configuration.api_key['Apikey'] = 'e2e09c1d-829f-49f2-a7f7-4693a4840026'
+
+    data = json.loads(request.data)
+    with open("receipt.jpg", "wb") as fh:
+        fh.write(base64.b64decode(data))
+
+    my_path = os.path.abspath(os.path.dirname(__file__))
+    image_file = os.path.join(my_path, "receipt.jpg")
+
+    try:
+    # Convert a photo of a document into text
+        api_response = api_instance.image_ocr_post(image_file)
+    except ApiException as e:
+         print("Exception when calling ImageOcrApi->image_ocr_photo_to_text: %s\n" % e)
+
+    return jsonify(api_response.text_result)
 
 @app.route("/negative", methods = ['POST'])
 def negative():

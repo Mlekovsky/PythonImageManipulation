@@ -25,6 +25,27 @@ function PostImage(url){
     });
 }
 
+function PostImageForOCR(url){
+
+    var img = receiptCanvas.toDataURL(); //convert img to base64 format    
+    var imgBase64 = img.replace(/^data:image\/(png|jpg|jpeg);base64,/, ""); //replace URL format data with empty string
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+        contentType: 'application/json;charset=UTF-8',
+        data: JSON.stringify(imgBase64),
+        success: function(response) {
+            $("#ReceiptResponse").val(response);
+        }
+    });
+
+}
+
+$("#ParseReceiptButton").click(function() {
+    PostImageForOCR('/receipt');
+});
+
 $("#Negative").click(function() {
     PostImage('/negative');
 });

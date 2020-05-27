@@ -7,7 +7,7 @@ var myContext1, myContext2, myContext3, myContext4, myContext5, myContext6;
 //Python images
 var imgBase, imgTarget;
 var baseContext, targetContext;
-var baseCanvas, targetCanvas;
+var baseCanvas, targetCanvas, receiptCanvas;
 
 function doClear( ) {
     myContext2.fillStyle = "lightgray";
@@ -58,6 +58,8 @@ function updatePythonCanvas( ) {
     targetCanvas = document.getElementById( 'targetCanvas' );
     targetContext = targetCanvas.getContext( '2d' );
 
+    receiptCanvas = document.getElementById("receiptCanvas");
+
     imgBase = new Image();
     imgTarget = new Image();
 }
@@ -85,23 +87,54 @@ function setPictures(filename){
     setBitmap(filename, baseCanvas, baseContext, imgBase);
 }
 
-function previewFile(){
-    const preview = document.querySelector('img');
-    const file = document.querySelector('input[type=file]').files[0];
-    const reader = new FileReader();
-  
-    reader.addEventListener("load", function () {
-      // convert image file to base64 string
-      preview.src = reader.result;
-    }, false);
-  
-    if (file) {
-      reader.readAsDataURL(file);
+function loadImage() {
+    var input, file, fr, img;
+
+    if (typeof window.FileReader !== 'function') {
+        alert("The file API isn't supported on this browser yet.");
+        return;
     }
+
+    input = document.getElementById('imgfile');
+    if (!input) {
+        alert("Couldn't find the imgfile element.");
+    }
+    else if (!input.files) {
+        alert("This browser doesn't seem to support the `files` property of file inputs.");
+    }
+    else if (!input.files[0]) {
+        alert("Please select a file before clicking 'Load'");
+    }
+    else {
+        file = input.files[0];
+        fr = new FileReader();
+        fr.onload = createImage;
+        fr.readAsDataURL(file);
+    }
+
+    function createImage() {
+        img = new Image();
+        img.onload = imageLoaded;
+        img.src = fr.result;
+    }
+
+    function imageLoaded() {
+        receiptCanvas.width = img.width;
+        receiptCanvas.height = img.height;
+        var ctx = receiptCanvas.getContext("2d");
+        ctx.drawImage(img,0,0);
+        document.getElementById("ParseReceiptButton").disabled = false;
+        //alert(canvas.toDataURL("image/png"));
+    }
+}
+
+function setDefaultTexts(){
+    $("#ReceiptResponse").val('Waiting for receipt parsed data...');
 }
 
 $(document).ready(function() {
     updateJsCanvas();
     updatePythonCanvas();
+    setDefaultTexts();
     setPictures('static/img/lena256.png');
 });
