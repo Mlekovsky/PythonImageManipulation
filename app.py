@@ -48,7 +48,7 @@ def receipt():
     api_instance = cloudmersive_ocr_api_client.ImageOcrApi()
 
     api_instance.api_client.configuration.api_key = {}
-    api_instance.api_client.configuration.api_key['Apikey'] = 'e2e09c1d-829f-49f2-a7f7-4693a4840026'
+    api_instance.api_client.configuration.api_key['Apikey'] = 'API_KEY'
 
     data = json.loads(request.data)
     with open("receipt.jpg", "wb") as fh:
