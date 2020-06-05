@@ -1,7 +1,4 @@
-FROM python:3.6.5-alpine
-
-ENV STATIC_URL /static
-ENV STATIC_PATH /var/www/app/static
+FROM python:3.7
 
 RUN apt-get update \
     && apt-get install -y \
@@ -56,6 +53,12 @@ RUN ln -s \
 
 COPY ./requirements.txt /var/www/requirements.txt
 RUN pip install -r /var/www/requirements.txt
-#WORKDIR /var/www/app
-ENTRYPOINT ["python"]
-CMD ["app.py"]
+
+WORKDIR /var/www/app
+COPY app.py .
+COPY static static
+COPY templates templates
+
+EXPOSE 5000
+
+ENTRYPOINT ["python", "app.py"]
