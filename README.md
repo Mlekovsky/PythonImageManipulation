@@ -23,3 +23,7 @@ To download Flask library and opencv library (with dependencies)
 ```python app.py```
 
 to start app. You should see information with link, where the app (website) is running
+
+#### UPDATE
+
+Since dockerfile has been added, you can now just use Docker to create image and then run it!
